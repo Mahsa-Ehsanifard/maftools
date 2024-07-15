@@ -382,16 +382,45 @@ Resarch. PMID: 30341162</a> and <a href="https://github.com/PoisonAlien/maftools
 <p>Install from <code>BiocManager</code> package</p>
 <p><code>{r} BiocManager::install(&quot;maftools&quot;)</code></p>
 <p><code>{r} library(maftools)</code></p>
-<div id="required-files" class="section level6">
-<h6><strong>Required files</strong></h6>
+<div id="required-files" class="section level5">
+<h5><strong>Required files</strong></h5>
 <ul>
 <li><p>MAF files - can be obtained from TCGA or gz compressed.</p></li>
 <li><p>here we downloaded the MAF file of LUAD cohort from TCGA (GDC
 portal)</p></li>
 </ul>
+<p><code>{r} library(TCGAbiolinks)</code></p>
+<p><code>{r} library(DT)</code></p>
+<p><code>{r} library(dplyr)</code></p>
 <p><code>{r} luad_maf &lt;- GDCquery(project = &quot;TCGA-LUAD&quot;,                       data.category = &quot;Simple Nucleotide Variation&quot;,                      data.type = &quot;Masked Somatic Mutation&quot;,                      access = &quot;open&quot;)</code></p>
-<p><code>{r} GDCdownload(luad_maf)</code></p>
+<p><code>{r} GDCdownload(luad_maf,method = &quot;client&quot;)</code></p>
 <p><code>{r} luadmaf &lt;- GDCprepare(luad_maf)</code></p>
+<p>Now, we have all genes with mutation types in LUAD cohort along with
+features data. SNP mutations are detectable in the output table, which
+can be separated based on <em>Variant_Classification</em> column in
+<em>luadmaf</em> table resulted from <code>GDCprepare</code>
+function.</p>
+<p><code>{r} head (luadmaf)</code></p>
+<pre><code>A tibble: 6 × 140
+  Hugo_Symbol Entrez_Gene_Id Center NCBI_Build Chromosome Start_Position End_Position Strand Variant_Classification
+  &lt;chr&gt;                &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;               &lt;int&gt;        &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;                 
+1 ELAPOR1              57535 BI     GRCh38     chr1            109197542    109197542 +      Silent                
+2 HIPK1               204851 BI     GRCh38     chr1            113962403    113962403 +      Missense_Mutation     
+3 FDPS                  2224 BI     GRCh38     chr1            155319833    155319833 +      Missense_Mutation     
+4 YY1AP1               55249 BI     GRCh38     chr1            155668660    155668660 +      Silent                
+5 FCRL3               115352 BI     GRCh38     chr1            157697402    157697402 +      Silent                
+6 OR6F1               343169 BI     GRCh38     chr1            247712205    247712205 +      Missense_Mutation     </code></pre>
+<p>We also access to altered alleles and substitutions’ position in each
+gene, indication nucleotides and amino acid exchanges in columns:
+<em>HGVSc</em>, <em>HGVSp</em>, and <em>HGVSp_Short</em>.</p>
+<pre><code> HGVSc     HGVSp       HGVSp_Short
+  &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;      
+1 c.2190C&gt;T p.Phe730=   p.F730=    
+2 c.2068C&gt;G p.Gln690Glu p.Q690E    
+3 c.964G&gt;C  p.Gly322Arg p.G322R    
+4 c.984C&gt;T  p.Leu328=   p.L328=    
+5 c.582G&gt;T  p.Leu194=   p.L194=    
+6 c.551G&gt;T  p.Trp184Leu p.W184L  </code></pre>
 </div>
 </div>
 </div>
