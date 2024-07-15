@@ -15,4 +15,6 @@ This package provides various functions to perform most commonly used analyses i
 
 [DOI:10.18129/B9.bioc.maftools](https://www.bioconductor.org/packages/release/bioc/html/maftools.html)
 
+Such cohort-based large-scale characterizations often produce large amounts of data in the form of *somatic variants* containing **single-nucleotide variants (SNV)** and small insertion/deletions (indels).  Somatic variants provide baseline data for many analyses, such as **Single Nucleotide Polimorphism (SNP)** types, driver gene detection, mutation frequencies, somatic interactions, visualization, and estimation of tumor heterogeneity, applied by the package employment. 
 
+[Thanks to Genome Resarch. PMID: 30341162](https://doi.org/10.1101/gr.239244.118)
