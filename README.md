@@ -13,6 +13,6 @@
 
 This package provides various functions to perform most commonly used analyses in cancer genomics. This package attempts to summarize, analyze, annotate and visualize MAF files in an efficient manner from either **The Cancer Genome Atlas (TCGA)** sources or any in-house studies as long as the data is in **MAF** format.
 
-
+![](https://www.bioconductor.org/packages/release/bioc/html/maftools.html)
 
  
