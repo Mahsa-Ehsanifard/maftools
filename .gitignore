@@ -46,4 +46,4 @@ docs/
 po/*~
 
 # RStudio Connect folder
-rsconnect/
+rsconnect/R.code
