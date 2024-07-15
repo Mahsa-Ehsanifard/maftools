@@ -382,6 +382,17 @@ Resarch. PMID: 30341162</a> and <a href="https://github.com/PoisonAlien/maftools
 <p>Install from <code>BiocManager</code> package</p>
 <p><code>{r} BiocManager::install(&quot;maftools&quot;)</code></p>
 <p><code>{r} library(maftools)</code></p>
+<div id="required-files" class="section level6">
+<h6><strong>Required files</strong></h6>
+<ul>
+<li><p>MAF files - can be obtained from TCGA or gz compressed.</p></li>
+<li><p>here we downloaded the MAF file of LUAD cohort from TCGA (GDC
+portal)</p></li>
+</ul>
+<p><code>{r} luad_maf &lt;- GDCquery(project = &quot;TCGA-LUAD&quot;,                       data.category = &quot;Simple Nucleotide Variation&quot;,                      data.type = &quot;Masked Somatic Mutation&quot;,                      access = &quot;open&quot;)</code></p>
+<p><code>{r} GDCdownload(luad_maf)</code></p>
+<p><code>{r} luadmaf &lt;- GDCprepare(luad_maf)</code></p>
+</div>
 </div>
 </div>
 </div>

@@ -36,4 +36,27 @@ library(maftools)
 ```
 
 
+###### **Required files**
+
+* MAF files - can be obtained from TCGA or gz compressed.
+
++ here we downloaded the MAF file of LUAD cohort from TCGA (GDC portal)
+
+```{r}
+luad_maf <- GDCquery(project = "TCGA-LUAD", 
+                     data.category = "Simple Nucleotide Variation",
+                     data.type = "Masked Somatic Mutation",
+                     access = "open")
+```
+
+```{r}
+GDCdownload(luad_maf)
+```
+
+```{r}
+luadmaf <- GDCprepare(luad_maf)
+```
+
+
+
 
