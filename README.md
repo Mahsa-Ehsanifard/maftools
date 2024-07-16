@@ -1,6 +1,3 @@
----
-output: html_document
----
 
 # **maftools package in R**
 
@@ -200,3 +197,49 @@ gene1  gene2       pValue oddsRatio    00    01    11    10         pAdj        
 5:   APOB  MUC16 1.693377e-16  6.421572   337   169    84    26 2.257836e-15 Co_Occurence  APOB, MUC16
 6:    TTN  USH2A 1.019462e-15  4.367813   296    58   121   141 1.274328e-14 Co_Occurence   TTN, USH2A
 ```
+
+#### Detecting driver genes
+
+`maftools` has a function `oncodrive` which identifies cancer genes (driver) from a given MAF.
+*Oncodriver* - driver genes - Concept is based on the fact that most of the variants in cancer causing genes are enriched at *few specific loci* (hot-spots). 
+
+```{r}
+driver <- oncodrive(maf = LUAD, minMut = 5, pvalMethod = "zscore")
+```
+
+```
+Estimating background scores from synonymous variants..
+Assuming protein change information are stored under column HGVSp_Short. Use argument AACol to override if necessary.
+```
+
+```{r}
+head(driver)
+```
+
+```
+Hugo_Symbol Frame_Shift_Del Frame_Shift_Ins In_Frame_Del In_Frame_Ins Missense_Mutation Nonsense_Mutation
+        <char>           <int>           <int>        <int>        <int>             <int>             <int>
+1:    CDC42EP2               0               0            0            0                 5                 0
+2:       DDX49               0               0            0            0                 8                 0
+3:     DEFB121               0               0            0            0                 6                 0
+4:     KRTCAP3               0               0            0            0                 6                 0
+5:        LCAT               0               0            0            0                 4                 1
+6:         OXT               0               0            0            0                 6                 0
+   Nonstop_Mutation Splice_Site Translation_Start_Site total MutatedSamples AlteredSamples clusters muts_in_clusters
+              <int>       <int>                  <int> <num>          <int>          <int>    <int>            <int>
+1:                0           0                      0     5              5              5        1                5
+2:                0           0                      0     8              8              8        2                8
+3:                0           0                      0     6              6              6        1                6
+4:                0           0                      0     6              6              6        1                6
+5:                0           0                      0     5              4              4        2                5
+6:                0           0                      0     6              6              6        1                6
+   clusterScores protLen   zscore        pval          fdr fract_muts_in_clusters
+           <num>   <int>    <num>       <num>        <num>                  <num>
+1:             1     210 5.546154 1.46011e-08 6.363157e-06                      1
+2:             1     483 5.546154 1.46011e-08 6.363157e-06                      1
+3:             1      76 5.546154 1.46011e-08 6.363157e-06                      1
+4:             1     240 5.546154 1.46011e-08 6.363157e-06                      1
+5:             1     440 5.546154 1.46011e-08 6.363157e-06                      1
+6:             1     125 5.546154 1.46011e-08 6.363157e-06                      1
+```
+
