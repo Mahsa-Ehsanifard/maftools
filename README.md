@@ -374,9 +374,5 @@ plotmafSummary(maf = luad, rmOutlier = T, addStat = "median", dashboard = T, tit
 oncoplot(maf = luad)
 ```
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 ![](C:/Users/Lenovo/Desktop/maftools%20package/oncoplot.PNG)
 
