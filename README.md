@@ -376,3 +376,10 @@ oncoplot(maf = luad)
 
 ![](C:/Users/Lenovo/Desktop/maftools%20package/oncoplot.PNG)
 
+* Transition and Transversion
+
+```{r}
+luad.titv <- titv(maf = luad,plot = F, useSyn = T)
+```
+
+
