@@ -1,9 +1,3 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
-output: html_document
----
 
 # **maftools package in R**
 
