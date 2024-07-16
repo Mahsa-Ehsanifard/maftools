@@ -366,7 +366,7 @@ mafSurvGroup(maf = luad, geneSet = c("KRAS","TP53"),
 plotmafSummary(maf = luad, rmOutlier = T, addStat = "median", dashboard = T, titvRaw = F)
 ```
 
-![](C:/Users/Lenovo/Desktop/maftools%20package/variant%20classification.PNG)
+![variant classification](https://github.com/user-attachments/assets/7b292743-4b5b-4d2d-a1f1-8abaf62e5272)
 
 -   Oncoplot
 
