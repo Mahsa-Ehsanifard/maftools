@@ -1,8 +1,3 @@
----
-output: 
-  html_document: 
-    fig_caption: true
----
 
 # **maftools package in R**
 
