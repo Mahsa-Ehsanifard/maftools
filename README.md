@@ -340,7 +340,7 @@ mafSurvival(maf = luad, genes = "DNMT3A",
             time = "days_to_last_followup", Status = "vital_status")
 ```
 
-![](C:/Users/Lenovo/Desktop/maftools package/Rplot02.png)
+![](C:/Users/Lenovo/Desktop/maftools%20package/Rplot02.png)
 
 ```         
    Group   medianTime   N
@@ -356,7 +356,14 @@ mafSurvGroup(maf = luad, geneSet = c("KRAS","TP53"),
              time = "days_to_last_followup", Status = "vital_status")
 ```
 
-![](http://127.0.0.1:11395/graphics/e76012f5-f423-4a9a-b0e2-d4513a652b8e.png)
+![](C:/Users/Lenovo/Desktop/maftools%20package/Rplot03.png)
 
 ## Visualization
 
+-   Summary of variant classification
+
+```{r}
+plotmafSummary(maf = luad, rmOutlier = T, addStat = "median", dashboard = T, titvRaw = F)
+```
+
+![](C:/Users/Lenovo/Desktop/maftools%20package/variant%20classification.png)
