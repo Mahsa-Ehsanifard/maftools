@@ -215,7 +215,7 @@ functional connections between the genes.
 somaticinter <- somaticInteractions(maf = LUAD, top = 20, pvalue = 0.0
 ```
 
-![](maftools package/Rplot01.png)
+![Fisher test](C:/Users/Lenovo/Desktop/maftools package/Rplot01.png)
 
 Binary feature for identifying mutated or non-mutated based on *0* and
 *1*
