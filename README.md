@@ -179,8 +179,7 @@ Useful for identification of relationships between genes based on their mutation
 ```{r}
 somaticinter <- somaticInteractions(maf = LUAD, top = 20, pvalue = 0.01)
 ```
-
-![Rplot01](https://github.com/user-attachments/assets/beb0c02c-1106-42eb-ba87-75cbb0ad3a79)
+![Rplot01](https://github.com/user-attachments/assets/8f9cfb84-d3e8-4edf-8dac-bd313febfcf5)
 
 ![](C:/Users/Lenovo/Desktop/maftools%20package/Rplot01.png)
 
@@ -342,6 +341,7 @@ mafSurvival(maf = luad, genes = "DNMT3A",
             time = "days_to_last_followup", Status = "vital_status")
 ```
 
+![Rplot02](https://github.com/user-attachments/assets/ff163644-3916-4441-b4ce-03be07cbb13b)
 
 ![](C:/Users/Lenovo/Desktop/maftools%20package/Rplot02.png)
 
@@ -359,6 +359,8 @@ mafSurvGroup(maf = luad, geneSet = c("KRAS","TP53"),
              time = "days_to_last_followup", Status = "vital_status")
 ```
 
+![Rplot03](https://github.com/user-attachments/assets/64815641-6f61-45d6-a071-0a8ee509ccf1)
+
 
 ## Visualization
 
@@ -368,6 +370,7 @@ mafSurvGroup(maf = luad, geneSet = c("KRAS","TP53"),
 plotmafSummary(maf = luad, rmOutlier = T, addStat = "median", dashboard = T, titvRaw = F)
 ```
 
+![variant classification](https://github.com/user-attachments/assets/0ec9b506-b467-4aa1-8fe4-c1c9a1d181d9)
 
 ![](C:/Users/Lenovo/Desktop/maftools%20package/variant%20classification.PNG)
 
@@ -378,6 +381,8 @@ plotmafSummary(maf = luad, rmOutlier = T, addStat = "median", dashboard = T, tit
 oncoplot(maf = luad)
 ```
 
+![oncoplot](https://github.com/user-attachments/assets/be862ca3-638f-43c2-af7d-c4344af8cefe)
+
 ![](C:/Users/Lenovo/Desktop/maftools%20package/oncoplot.PNG)
 
 
@@ -386,6 +391,8 @@ oncoplot(maf = luad)
 ```{r}
 luad.titv <- titv(maf = luad,plot = F, useSyn = T)
 ```
+
+![titv](https://github.com/user-attachments/assets/5e3a50e2-4910-4904-9877-6db37795e08f)
 
 
 * Lollipop plot
