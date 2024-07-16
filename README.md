@@ -1,3 +1,7 @@
+---
+output: html_document
+---
+
 # **maftools package in R**
 
 ![](https://img.shields.io/badge/version-2.20.0-blue) ![](https://img.shields.io/badge/open%20access-100%25-green) ![](https://img.shields.io/badge/installation-Rstudio-orange) ![](https://img.shields.io/badge/source-bioconductor-9cf) ![](https://img.shields.io/badge/dependenties-16-yellow)
@@ -180,7 +184,7 @@ Useful for identification of relationships between genes based on their mutation
 somaticinter <- somaticInteractions(maf = LUAD, top = 20, pvalue = 0.0
 ```
 
-![](C:/Users/Lenovo/Desktop/maftools%20package/Fisher.png)
+![](http://127.0.0.1:11395/graphics/e0832ee5-4bb2-428f-93ad-c1e6f0b360da.png)
 
 Binary feature for identifying mutated or non-mutated based on *0* and *1*
 
