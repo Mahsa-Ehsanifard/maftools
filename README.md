@@ -376,3 +376,4 @@ oncoplot(maf = luad)
 
 ![](C:/Users/Lenovo/Desktop/maftools%20package/oncoplot.PNG)
 
+![oncoplot](https://github.com/user-attachments/assets/2ca96662-f2be-4540-a33c-dfa83cdccbfd)
