@@ -181,7 +181,7 @@ Useful for identification of relationships between genes based on their mutation
 somaticinter <- somaticInteractions(maf = LUAD, top = 20, pvalue = 0.0
 ```
 
-![](C:/Users/Lenovo/Desktop/maftools%20package/Fisher.png)
+![](maftools%20package/to/Fisher.png)
 
 Binary feature for identifying mutated or non-mutated based on *0* and *1*
 
@@ -197,3 +197,4 @@ gene1  gene2       pValue oddsRatio    00    01    11    10         pAdj        
 5:   APOB  MUC16 1.693377e-16  6.421572   337   169    84    26 2.257836e-15 Co_Occurence  APOB, MUC16
 6:    TTN  USH2A 1.019462e-15  4.367813   296    58   121   141 1.274328e-14 Co_Occurence   TTN, USH2A
 ```
+
