@@ -403,6 +403,8 @@ lollipopPlot(maf = luad, gene = "TP53", AACol = "HGVSp_Short",
              showMutationRate = T, showDomainLabel = T)
 ```
 
+![lollipop](https://github.com/user-attachments/assets/d794c672-7332-4056-8597-2a1bfb604d6f)
+
 
 
 
