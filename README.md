@@ -366,7 +366,7 @@ mafSurvGroup(maf = luad, geneSet = c("KRAS","TP53"),
 plotmafSummary(maf = luad, rmOutlier = T, addStat = "median", dashboard = T, titvRaw = F)
 ```
 
-![](C:/Users/Lenovo/Desktop/maftools%20package/variant%20classification.png)
+![](C:/Users/Lenovo/Desktop/maftools%20package/variant%20classification.PNG)
 
 -   Oncoplot
 
@@ -374,5 +374,9 @@ plotmafSummary(maf = luad, rmOutlier = T, addStat = "median", dashboard = T, tit
 oncoplot(maf = luad)
 ```
 
-![](C:/Users/Lenovo/Desktop/maftools%20package/oncoplot.png)
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+![](C:/Users/Lenovo/Desktop/maftools%20package/oncoplot.PNG)
 
