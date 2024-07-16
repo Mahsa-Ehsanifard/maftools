@@ -179,7 +179,8 @@ Useful for identification of relationships between genes based on their mutation
 ```{r}
 somaticinter <- somaticInteractions(maf = LUAD, top = 20, pvalue = 0.01)
 ```
-![Fisher](https://github.com/user-attachments/assets/6ae9806b-0c73-401f-b33b-a92ef7921ddb)
+
+![Rplot01](https://github.com/user-attachments/assets/beb0c02c-1106-42eb-ba87-75cbb0ad3a79)
 
 ![](C:/Users/Lenovo/Desktop/maftools%20package/Rplot01.png)
 
