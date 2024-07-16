@@ -340,7 +340,7 @@ mafSurvival(maf = luad, genes = "DNMT3A",
             time = "days_to_last_followup", Status = "vital_status")
 ```
 
-![](http://127.0.0.1:11395/graphics/e19de3af-de26-4e2d-ae82-c099253ae709.png)
+![](C:/Users/Lenovo/Desktop/maftools package/Rplot02.png)
 
 ```         
    Group   medianTime   N
@@ -357,3 +357,6 @@ mafSurvGroup(maf = luad, geneSet = c("KRAS","TP53"),
 ```
 
 ![](http://127.0.0.1:11395/graphics/e76012f5-f423-4a9a-b0e2-d4513a652b8e.png)
+
+## Visualization
+
