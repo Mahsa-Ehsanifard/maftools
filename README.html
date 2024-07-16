@@ -624,11 +624,17 @@ important to have binary feature.</p>
 <p>Function <code>mafSurvive</code> performs survival analysis and draws
 kaplan meier curve by grouping samples based on mutation status</p>
 <p><code>{r} mafSurvival(maf = luad, genes = &quot;DNMT3A&quot;,              time = &quot;days_to_last_followup&quot;, Status = &quot;vital_status&quot;)</code></p>
+<p><img src="data:application/octet-stream;base64," /></p>
+<pre><code>   Group   medianTime   N
+   &lt;char&gt;      &lt;num&gt; &lt;int&gt;
+1: Mutant      259.5    18
+2:     WT      626.0   375</code></pre>
 <ul>
 <li>Identify set of selected significant gene pairs which affects
 survival ratio</li>
 </ul>
 <p><code>{r} mafSurvGroup(maf = luad, geneSet = c(&quot;KRAS&quot;,&quot;TP53&quot;),               time = &quot;days_to_last_followup&quot;, Status = &quot;vital_status&quot;)</code></p>
+<p><img src="data:application/octet-stream;base64," /></p>
 </div>
 </div>
 </div>

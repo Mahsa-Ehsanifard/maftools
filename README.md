@@ -340,9 +340,20 @@ mafSurvival(maf = luad, genes = "DNMT3A",
             time = "days_to_last_followup", Status = "vital_status")
 ```
 
+![](http://127.0.0.1:11395/graphics/e19de3af-de26-4e2d-ae82-c099253ae709.png)
+
+```         
+   Group   medianTime   N
+   <char>      <num> <int>
+1: Mutant      259.5    18
+2:     WT      626.0   375
+```
+
 -   Identify set of selected significant gene pairs which affects survival ratio
 
 ```{r}
 mafSurvGroup(maf = luad, geneSet = c("KRAS","TP53"), 
              time = "days_to_last_followup", Status = "vital_status")
 ```
+
+![](http://127.0.0.1:11395/graphics/e76012f5-f423-4a9a-b0e2-d4513a652b8e.png)
