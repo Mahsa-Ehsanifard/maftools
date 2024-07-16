@@ -367,3 +367,11 @@ plotmafSummary(maf = luad, rmOutlier = T, addStat = "median", dashboard = T, tit
 ```
 
 ![](C:/Users/Lenovo/Desktop/maftools%20package/variant%20classification.png)
+
+-   Oncoplot
+
+```{r}
+oncoplot(maf = luad)
+```
+
+![](C:/Users/Lenovo/Desktop/maftools%20package/oncoplot.png)
