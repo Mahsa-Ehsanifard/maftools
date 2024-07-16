@@ -1,3 +1,9 @@
+---
+output: 
+  html_document: 
+    toc: true
+    fig_caption: true
+---
 # **maftools package in R**
 
 ![](https://img.shields.io/badge/version-2.20.0-blue) ![](https://img.shields.io/badge/open%20access-100%25-green) ![](https://img.shields.io/badge/installation-Rstudio-orange) ![](https://img.shields.io/badge/source-bioconductor-9cf) ![](https://img.shields.io/badge/dependenties-16-yellow)
