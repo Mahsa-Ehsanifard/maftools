@@ -223,11 +223,14 @@ somaticinter <- somaticInteractions(maf = LUAD, top = 20, pvalue = 0.0
 
 ![](C:/Users/Lenovo/Desktop/maftools package/Rplot01.png)
 
-Binary feature for identifying mutated or non-mutated based on *0* and *1*
+Binary feature for identifying mutated or non-mutated based on *0* and
+*1*
 
-The result shows pair genes interacted together. The significant interactions are identified by *pAdj* column and the interaction type is described by *Event* column. 
+The result shows pair genes interacted together. The significant
+interactions are identified by *pAdj* column and the interaction type is
+described by *Event* column.
 
-```
+```         
 gene1  gene2       pValue oddsRatio    00    01    11    10         pAdj        Event         pair
    <char> <char>        <num>     <num> <int> <int> <int> <int>        <num>       <char>       <char>
 1:  LRP1B  MUC16 1.122434e-18  4.882350   296   120   133    67 2.040789e-17 Co_Occurence LRP1B, MUC16
@@ -237,4 +240,3 @@ gene1  gene2       pValue oddsRatio    00    01    11    10         pAdj        
 5:   APOB  MUC16 1.693377e-16  6.421572   337   169    84    26 2.257836e-15 Co_Occurence  APOB, MUC16
 6:    TTN  USH2A 1.019462e-15  4.367813   296    58   121   141 1.274328e-14 Co_Occurence   TTN, USH2A
 ```
-
