@@ -180,9 +180,7 @@ Useful for identification of relationships between genes based on their mutation
 somaticinter <- somaticInteractions(maf = LUAD, top = 20, pvalue = 0.0
 ```
 
-```{r echo=FALSE}
-knitr::include_graphics("Rplot01", error = FALSE)
-```
+![Fisher test](maftools package/Fisher.png)
 
 Binary feature for identifying mutated or non-mutated based on *0* and *1*
 
