@@ -387,5 +387,14 @@ oncoplot(maf = luad)
 luad.titv <- titv(maf = luad,plot = F, useSyn = T)
 ```
 
+* Lollipop plot
+
+Indicating the mutation frequencies positions on a gene based on protien domain.
+
+```{r}
+lollipopPlot(maf = luad, gene = "TP53", AACol = "HGVSp_Short",
+             showMutationRate = T, showDomainLabel = T)
+```
+
 
 
