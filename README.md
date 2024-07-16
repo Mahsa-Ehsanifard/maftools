@@ -179,6 +179,7 @@ Useful for identification of relationships between genes based on their mutation
 ```{r}
 somaticinter <- somaticInteractions(maf = LUAD, top = 20, pvalue = 0.01)
 ```
+![Fisher](https://github.com/user-attachments/assets/6ae9806b-0c73-401f-b33b-a92ef7921ddb)
 
 ![](C:/Users/Lenovo/Desktop/maftools%20package/Rplot01.png)
 
@@ -339,6 +340,7 @@ Function `mafSurvive` performs survival analysis and draws kaplan meier curve by
 mafSurvival(maf = luad, genes = "DNMT3A", 
             time = "days_to_last_followup", Status = "vital_status")
 ```
+![Rplot02](https://github.com/user-attachments/assets/099d73bc-771d-409f-8dd4-1ec40867b370)
 
 ![](C:/Users/Lenovo/Desktop/maftools%20package/Rplot02.png)
 
@@ -356,7 +358,8 @@ mafSurvGroup(maf = luad, geneSet = c("KRAS","TP53"),
              time = "days_to_last_followup", Status = "vital_status")
 ```
 
-![](C:/Users/Lenovo/Desktop/maftools%20package/Rplot03.png)
+![](C:/Users![Rplot03](https://github.com/user-attachments/assets/d220091a-dbde-4698-8a20-371505a86dbe)
+/Lenovo/Desktop/maftools%20package/Rplot03.png)
 
 ## Visualization
 
