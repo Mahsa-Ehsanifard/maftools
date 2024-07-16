@@ -48,8 +48,7 @@ library(maftools)
 
 -   MAF files - can be obtained from TCGA or gz compressed.
 
--   here we downloaded the MAF file of LUAD cohort from TCGA (GDC
-    portal)
+-   here we downloaded the MAF file of LUAD cohort from TCGA (GDC portal)
 
 ```{r}
 library(TCGAbiolinks)
@@ -78,10 +77,7 @@ GDCdownload(luad_maf,method = "client")
 luadmaf <- GDCprepare(luad_maf)
 ```
 
-Now, we have all genes with mutation types in LUAD cohort along with
-features data. SNP mutations are detectable in the output table, which
-can be separated based on *Variant_Classification* column in *luadmaf*
-table resulted from `GDCprepare` function.
+Now, we have all genes with mutation types in LUAD cohort along with features data. SNP mutations are detectable in the output table, which can be separated based on *Variant_Classification* column in *luadmaf* table resulted from `GDCprepare` function.
 
 ```{r}
 head (luadmaf)
@@ -99,9 +95,7 @@ A tibble: 6 × 140
 6 OR6F1               343169 BI     GRCh38     chr1            247712205    247712205 +      Missense_Mutation     
 ```
 
-We also access to altered alleles and substitutions' position in each
-gene, indication nucleotides and amino acid exchanges in columns:
-*HGVSc*, *HGVSp*, and *HGVSp_Short*.
+We also access to altered alleles and substitutions' position in each gene, indication nucleotides and amino acid exchanges in columns: *HGVSc*, *HGVSp*, and *HGVSp_Short*.
 
 ```         
  HGVSc     HGVSp       HGVSp_Short
@@ -116,15 +110,11 @@ gene, indication nucleotides and amino acid exchanges in columns:
 
 ##### **Reading MAF file**
 
--   `read.maf` function reads and summarizes MAF files in various ways,
-    and stores as a MAF object.
+-   `read.maf` function reads and summarizes MAF files in various ways, and stores as a MAF object.
 
--   It is recommended to provide annotations associated with samples in
-    MAF.
+-   It is recommended to provide annotations associated with samples in MAF.
 
--   Here I read MAF file of LUAD cohort based on an object resulted from
-    `GDCprepare` function because there are sample barcodes annotation
-    in it.
+-   Here I read MAF file of LUAD cohort based on an object resulted from `GDCprepare` function because there are sample barcodes annotation in it.
 
 ```{r}
 LUAD <- read.maf(maf = luadmaf)
@@ -182,12 +172,9 @@ sample <- getSampleSummary(LUAD)
 gene <- getGeneSummary(LUAD) 
 ```
 
-> Recommended clinical data associated with each
-> sample/Tumor_Sample_Barcode in MAF.
+> Recommended clinical data associated with each sample/Tumor_Sample_Barcode in MAF.
 
--   Here I get the linicalData from MAF file resulted from `read.maf`
-    function. Another way is to obtain clinical data frame from GDC
-    portal using `GDCquery` function.
+-   Here I get the linicalData from MAF file resulted from `read.maf` function. Another way is to obtain clinical data frame from GDC portal using `GDCquery` function.
 
 ```{r}
 clin <- getClinicalData(LUAD)
@@ -197,17 +184,13 @@ clin <- getClinicalData(LUAD)
 
 #### Somatic Interactions
 
-Interaction between pair genes using `somaticInteractions` function
-based on:
+Interaction between pair genes using `somaticInteractions` function based on:
 
--   **Co-occurance**- co-occurance frequency - both genes are often
-    mutated together.
+-   **Co-occurance**- co-occurance frequency - both genes are often mutated together.
 
 -   **Mutually exlusive** - One gene is mutated, the other gene is not.
 
-Useful for identification of relationships between genes based on their
-mutation patterns across a popularion of samples. Highlights potential
-functional connections between the genes.
+Useful for identification of relationships between genes based on their mutation patterns across a popularion of samples. Highlights potential functional connections between the genes.
 
 -   Significance customization -- *P.Value \< 0.05 or 0.01*
 
@@ -215,14 +198,11 @@ functional connections between the genes.
 somaticinter <- somaticInteractions(maf = LUAD, top = 20, pvalue = 0.0
 ```
 
-![Fisher test](C:/Users/Lenovo/Desktop/maftools package/Rplot01.png)
+![Fisher test](C:/Users/Lenovo/Desktop/maftools%20package/Rplot01.png)
 
-Binary feature for identifying mutated or non-mutated based on *0* and
-*1*
+Binary feature for identifying mutated or non-mutated based on *0* and *1*
 
-The result shows pair genes interacted together. The significant
-interactions are identified by *pAdj* column and the interaction type is
-described by *Event* column.
+The result shows pair genes interacted together. The significant interactions are identified by *pAdj* column and the interaction type is described by *Event* column.
 
 ```         
 gene1  gene2       pValue oddsRatio    00    01    11    10         pAdj        Event         pair
