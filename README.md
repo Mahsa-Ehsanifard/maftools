@@ -180,7 +180,7 @@ Useful for identification of relationships between genes based on their mutation
 somaticinter <- somaticInteractions(maf = LUAD, top = 20, pvalue = 0.01)
 ```
 
-![](C:/Users/Lenovo/Desktop/maftools%20package/Rplot01.png)
+![](C:/Users/Lenovo/Desktop/maftools package/Rplot01.png)
 
 Binary feature for identifying mutated or non-mutated based on *0* and *1*
 
