@@ -178,10 +178,9 @@ Useful for identification of relationships between genes based on their mutation
 -   Significance customization -- *P.Value \< 0.05 or 0.01*
 
 ```{r}
-somaticinter <- somaticInteractions(maf = LUAD, top = 20, pvalue = 0.0
+somaticinter <- somaticInteractions(maf = LUAD, top = 20, pvalue = 0.01)
 ```
 
-![](http://127.0.0.1:11395/graphics/e0832ee5-4bb2-428f-93ad-c1e6f0b360da.png)
 
 Binary feature for identifying mutated or non-mutated based on *0* and *1*
 
@@ -241,5 +240,84 @@ Hugo_Symbol Frame_Shift_Del Frame_Shift_Ins In_Frame_Del In_Frame_Ins Missense_M
 4:             1     240 5.546154 1.46011e-08 6.363157e-06                      1
 5:             1     440 5.546154 1.46011e-08 6.363157e-06                      1
 6:             1     125 5.546154 1.46011e-08 6.363157e-06                      1
+```
+
+#### Protein domain changes
+
+`maftools` comes with the function `pfamDomains`, which adds **pfam** domain information to the *amino acid changes*. Adding pfam domain changes for detection of amino acid changes in protein.`pfamDomain` also summarizes amino acid changes according to the domains that are affected.
+
+```{r}
+pfam <- pfamDomains(maf = LUAD, top = 10)
+```
+
+Get summary of protein and amino acid
+
+```{r}
+prSum <- pfam$proteinSummary
+Dsum <- pfam$domainSummary
+```
+
+```{r}
+head(prSum)
+```
+
+#### Survival
+
+##### Survival analysis - Kaplan_miere (KM)
+
+> Survival analysis is an essential part of cohort anaysis.
+
+Required clinical input =\> Tumor_sample_Barcode -\> matches to those in MAF file.
+
+binary event -\> 1,0 =\> Status (vital_status): Alive = 0, Dead = 1
+
+time to event -\> last followup =\> days
+
+We can load clinical data in various ways such as TCGA or othe clinical files including annotation of samples, specifically **Tumor_sample_Barcode** column as in MAF file.
+
+* Here I load all data of LUAD combined with clinical data
+
+```{r}
+cohort <- tcgaLoad(study = "LUAD")
+```
+
+releasing clinicalData
+
+```{r}
+clin <- getClinicalData(cohort)
+```
+
+removing *NA* values and setting *0* and *1* for *Alive* and *DEAD* status respectively because it is important to have binary feature.
+
+```{r}
+clin$days_to_last_followup[clin$days_to_last_followup=="[Not Available]"] <- NA
+clin$vital_status[clin$vital_status=="Alive"] <- 0
+clin$vital_status[clin$vital_status=="Dead"] <- 1
+```
+
+obtaining all data
+
+```{r}
+data <- cohort@data
+```
+
+```{r}
+luad <- read.maf(data, clinicalData = clin)
+```
+
+Now, we have a full data with clinical eature added.
+
+Function `mafSurvive` performs survival analysis and draws kaplan meier curve by grouping samples based on mutation status 
+
+```{r}
+mafSurvival(maf = luad, genes = "DNMT3A", 
+            time = "days_to_last_followup", Status = "vital_status")
+```
+
+* Identify set of selected significant gene pairs which affects survival ratio
+
+```{r}
+mafSurvGroup(maf = luad, geneSet = c("KRAS","TP53"), 
+             time = "days_to_last_followup", Status = "vital_status")
 ```
 
