@@ -180,6 +180,8 @@ Useful for identification of relationships between genes based on their mutation
 somaticinter <- somaticInteractions(maf = LUAD, top = 20, pvalue = 0.01)
 ```
 
+![Rplot01](https://github.com/user-attachments/assets/beb0c02c-1106-42eb-ba87-75cbb0ad3a79)
+
 ![](C:/Users/Lenovo/Desktop/maftools%20package/Rplot01.png)
 
 Binary feature for identifying mutated or non-mutated based on *0* and *1*
@@ -340,6 +342,7 @@ mafSurvival(maf = luad, genes = "DNMT3A",
             time = "days_to_last_followup", Status = "vital_status")
 ```
 
+
 ![](C:/Users/Lenovo/Desktop/maftools%20package/Rplot02.png)
 
 ```         
@@ -356,7 +359,6 @@ mafSurvGroup(maf = luad, geneSet = c("KRAS","TP53"),
              time = "days_to_last_followup", Status = "vital_status")
 ```
 
-![](C:/Users/Lenovo/Desktop/maftools%20package/Rplot03.png)
 
 ## Visualization
 
@@ -366,7 +368,9 @@ mafSurvGroup(maf = luad, geneSet = c("KRAS","TP53"),
 plotmafSummary(maf = luad, rmOutlier = T, addStat = "median", dashboard = T, titvRaw = F)
 ```
 
-![variant classification](https://github.com/user-attachments/assets/7b292743-4b5b-4d2d-a1f1-8abaf62e5272)
+
+![](C:/Users/Lenovo/Desktop/maftools%20package/variant%20classification.PNG)
+
 
 -   Oncoplot
 
@@ -376,10 +380,12 @@ oncoplot(maf = luad)
 
 ![](C:/Users/Lenovo/Desktop/maftools%20package/oncoplot.PNG)
 
+
 * Transition and Transversion
 
 ```{r}
 luad.titv <- titv(maf = luad,plot = F, useSyn = T)
 ```
+
 
 
