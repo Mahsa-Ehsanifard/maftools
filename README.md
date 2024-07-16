@@ -341,6 +341,8 @@ mafSurvival(maf = luad, genes = "DNMT3A",
             time = "days_to_last_followup", Status = "vital_status")
 ```
 
+![Rplot02](https://github.com/user-attachments/assets/4b6c6d89-6734-4dcb-bb34-3c51c30f8065)
+
 ![](C:/Users/Lenovo/Desktop/maftools%20package/Rplot02.png)
 
 ```         
@@ -357,6 +359,7 @@ mafSurvGroup(maf = luad, geneSet = c("KRAS","TP53"),
              time = "days_to_last_followup", Status = "vital_status")
 ```
 
+![Rplot03](https://github.com/user-attachments/assets/1d6856e1-5add-4746-8551-3548402bd67b)
 
 ## Visualization
 
@@ -366,6 +369,7 @@ mafSurvGroup(maf = luad, geneSet = c("KRAS","TP53"),
 plotmafSummary(maf = luad, rmOutlier = T, addStat = "median", dashboard = T, titvRaw = F)
 ```
 
+![variant classification](https://github.com/user-attachments/assets/7eefe26d-d7dd-4935-b90e-6141af95d596)
 
 ![](C:/Users/Lenovo/Desktop/maftools%20package/variant%20classification.PNG)
 
@@ -376,6 +380,8 @@ plotmafSummary(maf = luad, rmOutlier = T, addStat = "median", dashboard = T, tit
 oncoplot(maf = luad)
 ```
 
+![oncoplot](https://github.com/user-attachments/assets/305de87d-6960-448b-8307-42d16cd66896)
+
 ![](C:/Users/Lenovo/Desktop/maftools%20package/oncoplot.PNG)
 
 
@@ -384,6 +390,8 @@ oncoplot(maf = luad)
 ```{r}
 luad.titv <- titv(maf = luad,plot = F, useSyn = T)
 ```
+
+![titv](https://github.com/user-attachments/assets/dece7c2d-73b9-4a6e-8808-9be0f194d1bf)
 
 
 * Lollipop plot
