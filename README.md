@@ -181,8 +181,6 @@ somaticinter <- somaticInteractions(maf = LUAD, top = 20, pvalue = 0.01)
 ```
 ![Rplot01](https://github.com/user-attachments/assets/8f9cfb84-d3e8-4edf-8dac-bd313febfcf5)
 
-![Rplot01](https://github.com/user-attachments/assets/beb0c02c-1106-42eb-ba87-75cbb0ad3a79)
-
 ![](C:/Users/Lenovo/Desktop/maftools%20package/Rplot01.png)
 
 Binary feature for identifying mutated or non-mutated based on *0* and *1*
