@@ -1,4 +1,3 @@
-
 # **maftools package in R**
 
 ![](https://img.shields.io/badge/version-2.20.0-blue) ![](https://img.shields.io/badge/open%20access-100%25-green) ![](https://img.shields.io/badge/installation-Rstudio-orange) ![](https://img.shields.io/badge/source-bioconductor-9cf) ![](https://img.shields.io/badge/dependenties-16-yellow)
@@ -180,7 +179,8 @@ Useful for identification of relationships between genes based on their mutation
 ```{r}
 somaticinter <- somaticInteractions(maf = LUAD, top = 20, pvalue = 0.01)
 ```
-![](http://127.0.0.1:11395/graphics/d2183ae5-e366-45a9-9b81-35e0d900e262.png)
+
+![fisher test](http://127.0.0.1:11395/graphics/d2183ae5-e366-45a9-9b81-35e0d900e262.png)
 
 Binary feature for identifying mutated or non-mutated based on *0* and *1*
 
@@ -199,14 +199,13 @@ gene1  gene2       pValue oddsRatio    00    01    11    10         pAdj        
 
 #### Detecting driver genes
 
-`maftools` has a function `oncodrive` which identifies cancer genes (driver) from a given MAF.
-*Oncodriver* - driver genes - Concept is based on the fact that most of the variants in cancer causing genes are enriched at *few specific loci* (hot-spots). 
+`maftools` has a function `oncodrive` which identifies cancer genes (driver) from a given MAF. *Oncodriver* - driver genes - Concept is based on the fact that most of the variants in cancer causing genes are enriched at *few specific loci* (hot-spots).
 
 ```{r}
 driver <- oncodrive(maf = LUAD, minMut = 5, pvalMethod = "zscore")
 ```
 
-```
+```         
 Estimating background scores from synonymous variants..
 Assuming protein change information are stored under column HGVSp_Short. Use argument AACol to override if necessary.
 ```
@@ -215,7 +214,7 @@ Assuming protein change information are stored under column HGVSp_Short. Use arg
 head(luadsig)
 ```
 
-```
+```         
  Hugo_Symbol Frame_Shift_Del Frame_Shift_Ins In_Frame_Del In_Frame_Ins Missense_Mutation
         <char>           <int>           <int>        <int>        <int>             <int>
 1:    CDC42EP2               0               0            0            0                 5
@@ -269,7 +268,7 @@ Dsum <- pfam$domainSummary
 head(prSum)
 ```
 
-```
+```         
     HGNC AAPos Variant_Classification     N total  fraction DomainLabel       pfam
     <char> <num>                 <fctr> <int> <num>     <num>      <char>     <char>
 1:    KRAS    12      Missense_Mutation   146   163 0.8957055     COG1100       <NA>
@@ -302,7 +301,7 @@ time to event -\> last followup =\> days
 
 We can load clinical data in various ways such as TCGA or othe clinical files including annotation of samples, specifically **Tumor_sample_Barcode** column as in MAF file.
 
-* Here I load all data of LUAD combined with clinical data
+-   Here I load all data of LUAD combined with clinical data
 
 ```{r}
 cohort <- tcgaLoad(study = "LUAD")
@@ -334,17 +333,16 @@ luad <- read.maf(data, clinicalData = clin)
 
 Now, we have a full data with clinical eature added.
 
-Function `mafSurvive` performs survival analysis and draws kaplan meier curve by grouping samples based on mutation status 
+Function `mafSurvive` performs survival analysis and draws kaplan meier curve by grouping samples based on mutation status
 
 ```{r}
 mafSurvival(maf = luad, genes = "DNMT3A", 
             time = "days_to_last_followup", Status = "vital_status")
 ```
 
-* Identify set of selected significant gene pairs which affects survival ratio
+-   Identify set of selected significant gene pairs which affects survival ratio
 
 ```{r}
 mafSurvGroup(maf = luad, geneSet = c("KRAS","TP53"), 
              time = "days_to_last_followup", Status = "vital_status")
 ```
-
