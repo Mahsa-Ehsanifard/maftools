@@ -180,7 +180,7 @@ Useful for identification of relationships between genes based on their mutation
 ```{r}
 somaticinter <- somaticInteractions(maf = LUAD, top = 20, pvalue = 0.01)
 ```
-
+![](http://127.0.0.1:11395/graphics/d2183ae5-e366-45a9-9b81-35e0d900e262.png)
 
 Binary feature for identifying mutated or non-mutated based on *0* and *1*
 
@@ -212,34 +212,42 @@ Assuming protein change information are stored under column HGVSp_Short. Use arg
 ```
 
 ```{r}
-head(driver)
+head(luadsig)
 ```
 
 ```
-Hugo_Symbol Frame_Shift_Del Frame_Shift_Ins In_Frame_Del In_Frame_Ins Missense_Mutation Nonsense_Mutation
-        <char>           <int>           <int>        <int>        <int>             <int>             <int>
-1:    CDC42EP2               0               0            0            0                 5                 0
-2:       DDX49               0               0            0            0                 8                 0
-3:     DEFB121               0               0            0            0                 6                 0
-4:     KRTCAP3               0               0            0            0                 6                 0
-5:        LCAT               0               0            0            0                 4                 1
-6:         OXT               0               0            0            0                 6                 0
-   Nonstop_Mutation Splice_Site Translation_Start_Site total MutatedSamples AlteredSamples clusters muts_in_clusters
-              <int>       <int>                  <int> <num>          <int>          <int>    <int>            <int>
-1:                0           0                      0     5              5              5        1                5
-2:                0           0                      0     8              8              8        2                8
-3:                0           0                      0     6              6              6        1                6
-4:                0           0                      0     6              6              6        1                6
-5:                0           0                      0     5              4              4        2                5
-6:                0           0                      0     6              6              6        1                6
-   clusterScores protLen   zscore        pval          fdr fract_muts_in_clusters
-           <num>   <int>    <num>       <num>        <num>                  <num>
-1:             1     210 5.546154 1.46011e-08 6.363157e-06                      1
-2:             1     483 5.546154 1.46011e-08 6.363157e-06                      1
-3:             1      76 5.546154 1.46011e-08 6.363157e-06                      1
-4:             1     240 5.546154 1.46011e-08 6.363157e-06                      1
-5:             1     440 5.546154 1.46011e-08 6.363157e-06                      1
-6:             1     125 5.546154 1.46011e-08 6.363157e-06                      1
+ Hugo_Symbol Frame_Shift_Del Frame_Shift_Ins In_Frame_Del In_Frame_Ins Missense_Mutation
+        <char>           <int>           <int>        <int>        <int>             <int>
+1:    CDC42EP2               0               0            0            0                 5
+2:       DDX49               0               0            0            0                 8
+3:     DEFB121               0               0            0            0                 6
+4:     KRTCAP3               0               0            0            0                 6
+5:        LCAT               0               0            0            0                 4
+6:         OXT               0               0            0            0                 6
+   Nonsense_Mutation Nonstop_Mutation Splice_Site Translation_Start_Site total MutatedSamples
+               <int>            <int>       <int>                  <int> <num>          <int>
+1:                 0                0           0                      0     5              5
+2:                 0                0           0                      0     8              8
+3:                 0                0           0                      0     6              6
+4:                 0                0           0                      0     6              6
+5:                 1                0           0                      0     5              4
+6:                 0                0           0                      0     6              6
+   AlteredSamples clusters muts_in_clusters clusterScores protLen   zscore        pval          fdr
+            <int>    <int>            <int>         <num>   <int>    <num>       <num>        <num>
+1:              5        1                5             1     210 5.546154 1.46011e-08 6.363157e-06
+2:              8        2                8             1     483 5.546154 1.46011e-08 6.363157e-06
+3:              6        1                6             1      76 5.546154 1.46011e-08 6.363157e-06
+4:              6        1                6             1     240 5.546154 1.46011e-08 6.363157e-06
+5:              4        2                5             1     440 5.546154 1.46011e-08 6.363157e-06
+6:              6        1                6             1     125 5.546154 1.46011e-08 6.363157e-06
+   fract_muts_in_clusters
+                    <num>
+1:                      1
+2:                      1
+3:                      1
+4:                      1
+5:                      1
+6:                      1
 ```
 
 #### Protein domain changes
@@ -259,6 +267,25 @@ Dsum <- pfam$domainSummary
 
 ```{r}
 head(prSum)
+```
+
+```
+    HGNC AAPos Variant_Classification     N total  fraction DomainLabel       pfam
+    <char> <num>                 <fctr> <int> <num>     <num>      <char>     <char>
+1:    KRAS    12      Missense_Mutation   146   163 0.8957055     COG1100       <NA>
+2:    EGFR   858      Missense_Mutation    23   104 0.2211538   PTKc_EGFR    cd05108
+3:    EGFR   746           In_Frame_Del    21   104 0.2019231   PTKc_EGFR    cd05108
+4:    BRAF   640      Missense_Mutation    13    54 0.2407407     Pkinase  pfam00069
+5: ALDH1B1    75      Missense_Mutation    12    22 0.5454545    PLN02466       <NA>
+6:   CD163   987      Missense_Mutation    12    52 0.2307692          SR smart00202
+                                                                         Description
+                                                                              <char>
+1:       GTPase SAR1 and related small G proteins [General function prediction only]
+2: Catalytic domain of the Protein Tyrosine Kinase, Epidermal Growth Factor Receptor
+3: Catalytic domain of the Protein Tyrosine Kinase, Epidermal Growth Factor Receptor
+4:                                                             Protein kinase domain
+5:                                            aldehyde dehydrogenase family 2 member
+6:                                                       Scavenger receptor Cys-rich
 ```
 
 #### Survival
